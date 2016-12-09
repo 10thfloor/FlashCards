@@ -6,8 +6,8 @@ import Cards from '../components/Cards';
 
 const scenes = Actions.create(
   <Scene key="root">
-      <Scene key="home" component={HomeScreen} hideNavBar />
-      <Scene key="cards" direction={'vertical'} component={Cards} hideNavBar />
+      <Scene key="home" initial component={HomeScreen} hideNavBar />
+      <Scene key="cards" panHandlers={null} direction={'vertical'} component={Cards} hideNavBar />
   </Scene>
 );
 
