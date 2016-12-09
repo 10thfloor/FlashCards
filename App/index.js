@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import {
-  createRouter,
-  NavigationProvider,
-  StackNavigation,
-} from '@exponent/ex-navigation';
+import { View } from 'react-native';
+import { Router } from 'react-native-router-flux';
 
-import HomeScreen from './components/Home';
-
-const Router = createRouter(() => ({
-  home: () => HomeScreen,
-}));
+import scenes from './scenes';
 
 export default class FlashCards extends Component {
   render() {
     return (
-       <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute('home')} />
-      </NavigationProvider>
+        <Router scenes={scenes} style={{ backgroundColor: '#F8CE01'}} />
     );
   }
 }
