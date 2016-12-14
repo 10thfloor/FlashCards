@@ -8,6 +8,11 @@
   },
   "dependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
+    "eslint": "^3.12.1",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-standard": "^2.0.1",
     "react": "15.4.1",
     "react-native": "0.39.0",
     "react-native-config": "^0.1.2",

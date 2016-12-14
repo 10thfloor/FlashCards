@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
-import { Animated, Easing, View, Text, StyleSheet, Image, Dimensions, PanResponder } from 'react-native';
-import SimpleGesture from 'react-native-simple-gesture';
-import { Actions } from 'react-native-router-flux';
-import JSParticle from '../imports/JSParticle';
+import React, { Component } from 'react'
+import { Animated, Easing, View, Text, StyleSheet, Image, Dimensions, PanResponder } from 'react-native'
+import SimpleGesture from 'react-native-simple-gesture'
+import { Actions } from 'react-native-router-flux'
+import JSParticle from '../imports/JSParticle'
+import { JSYellow } from '../imports/Styles'
 
 export default class HomeScreen extends Component {
 
-  constructor() {
-    super();
-    this.numParticles = 20;
+  constructor () {
+    super()
+    this.numParticles = 20
     this.state = {
       titleOpacity: new Animated.Value(0),
       swipeY: new Animated.Value(0)
-    };
+    }
 
-    this.particles = [];
+    this.particles = []
     for (let i = 0; i < this.numParticles; i++) {
       this.particles.push(<JSParticle key={i} />)
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this._panResponder = PanResponder.create({
       onMoveShouldSetPanResponder: (e, gs) => {
-        let sgs = new SimpleGesture(e, gs);
-        return sgs.isSwipeUp();
+        let sgs = new SimpleGesture(e, gs)
+        return sgs.isSwipeUp()
       },
       onPanResponderMove: (evt, gestureState) => {
         if (gestureState.dy <= 0) {
@@ -38,15 +39,15 @@ export default class HomeScreen extends Component {
             duration: 1000,
             easing: Easing.elastic(0.4)
           }
-        ).start();
+        ).start()
         Actions.cards()
       }
     })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     Animated.sequence([
-      Animated.delay(1000),
+      Animated.delay(500),
       Animated.timing(
         this.state.titleOpacity, {
           toValue: 1,
@@ -61,13 +62,12 @@ export default class HomeScreen extends Component {
           easing: Easing.elastic(0.4)
         }
       )
-    ]).start();
+    ]).start()
   }
 
-  render() {
-
-    let { swipeY } = this.state;
-    let [translateY] = [swipeY];
+  render () {
+    let { swipeY } = this.state
+    let [translateY] = [swipeY]
     let animatedStyles = { transform: [{ translateY }] }
 
     return (
@@ -89,17 +89,16 @@ export default class HomeScreen extends Component {
           }>Swipe up to enter</Text>
         </Animated.View>
       </View>
-    );
+    )
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F8CE01',
+    backgroundColor: JSYellow,
     width: Dimensions.get('window').width
   },
   particles: {
@@ -139,4 +138,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     fontFamily: 'HelveticaNeue-Thin'
   }
-});
+})

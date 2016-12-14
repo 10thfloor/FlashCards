@@ -5,7 +5,7 @@ class Cards extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello There!</Text>
+
       </View>
     );
   }
