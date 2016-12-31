@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { Animated, Easing, View, Text, Image } from 'react-native';
+import React, { Component } from 'react'
+import { Animated, Easing, Image } from 'react-native'
 
 export default class JSParticle extends Component {
 
-  constructor() {
-    super();
+  constructor () {
+    super()
     this.vector = [this._getRandom(400, -400), this._getRandom(400, -400)]
-    this.duration = this._getRandom(2000, 10000);
-    this.size = this._getRandom(0.3, 0.5);
+    this.duration = this._getRandom(2000, 10000)
+    this.size = this._getRandom(0.3, 0.5)
     this.state = {
       opacity: new Animated.Value(0),
       scale: this.size,
@@ -18,15 +18,15 @@ export default class JSParticle extends Component {
     }
   }
 
-  componentDidMount() {
-    this._startAnimation();
+  componentDidMount () {
+    this._startAnimation()
   }
 
-  _getRandom(max, min) {
-    return Math.random() * (max - min) + min;
+  _getRandom (max, min) {
+    return Math.random() * (max - min) + min
   }
 
-  _reset() {
+  _reset () {
     this.setState({
       opacity: new Animated.Value(1),
       scale: this.size,
@@ -37,7 +37,7 @@ export default class JSParticle extends Component {
     })
   }
 
-  _startAnimation() {
+  _startAnimation () {
     Animated.parallel([
       Animated.delay(this._getRandom(0, 10000)),
       Animated.timing(
@@ -68,15 +68,15 @@ export default class JSParticle extends Component {
             duration: 3000,
             easing: Easing.elastic(0.4)
           }
-        ),
+        )
       ])
     ]).start(() => {
-      this._reset();
-      this._startAnimation();
-    });
+      this._reset()
+      this._startAnimation()
+    })
   }
 
-  render() {
+  render () {
     return (
       <Animated.View style={{
         position: 'absolute',

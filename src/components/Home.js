@@ -4,6 +4,7 @@ import SimpleGesture from 'react-native-simple-gesture'
 import { Actions } from 'react-native-router-flux'
 import JSParticle from '../imports/JSParticle'
 import { JSYellow } from '../imports/Styles'
+import tinycolor from 'tinycolor2'
 
 export default class HomeScreen extends Component {
 
@@ -86,7 +87,7 @@ export default class HomeScreen extends Component {
               backgroundColor: 'transparent',
               fontFamily: 'HelveticaNeue-Thin'
             }
-          }>Swipe up to enter</Text>
+          }>Swipe up to Continue</Text>
         </Animated.View>
       </View>
     )

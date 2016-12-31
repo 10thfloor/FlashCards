@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
-import FlashCards from './App';
+import FlashCards from './src';
 
 AppRegistry.registerComponent('FlashCards', () => FlashCards);
 
